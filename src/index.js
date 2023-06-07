@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { router } from "./Routes/router";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

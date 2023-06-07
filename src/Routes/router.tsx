@@ -1,5 +1,6 @@
 import { createBrowserRouter, defer } from "react-router-dom";
 import Login from "../Pages/Account/Login/Login";
+import Register from "../Pages/Account/Register/Register";
 export async function loader(permission?: string) {
    //Control of Token
 
@@ -23,10 +24,16 @@ export async function loader(permission?: string) {
             element: (
                 <Login />
             ),
-            loader: async () => {
-              return loader();
-            },
-          }],
+          },
+          {
+            path: "register",
+            element: (
+                <Register />
+            ),
+          },
+        
+        
+        ],
     errorElement: <></>,
     },
     {
