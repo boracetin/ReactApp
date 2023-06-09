@@ -4,8 +4,13 @@ import Register from '../Pages/Account/Register/Register';
 import { checkTheToken } from '../Helpers/AuthenticationHelper';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Dashboard } from '../Pages/App/Home/dashboard';
+import { GuestRoute } from './GuestRoute';
 export async function loader(permission?: string) {
     var isAuthenticated = checkTheToken();
+
+    if (isAuthenticated) {
+    }
+
     return defer({ isAuthenticated });
 }
 
@@ -19,14 +24,25 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: 'login',
-                element: <Login />,
+                element: (
+                    <GuestRoute>
+                        <Login />
+                    </GuestRoute>
+                ),
                 loader: async () => {
                     return loader();
                 },
             },
             {
                 path: 'register',
-                element: <Register />,
+                element: (
+                    <GuestRoute>
+                        <Register />
+                    </GuestRoute>
+                ),
+                loader: async () => {
+                    return loader();
+                },
             },
         ],
         errorElement: <></>,

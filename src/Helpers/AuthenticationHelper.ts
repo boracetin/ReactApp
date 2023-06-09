@@ -22,6 +22,10 @@ export const checkTheToken = () => {
     debugger;
     let token = getTokenFromCookie();
 
+    if (token === undefined) {
+        return false;
+    }
+
     let decodedToken: any = jwt_decode(token);
     console.log('Decoded Token', decodedToken);
     let currentDate = new Date();
