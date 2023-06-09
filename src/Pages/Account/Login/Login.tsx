@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { AuthAPI } from '../../../Services/ServicesRequests/Authentication/AuthApi';
 import { LoginInputModel } from '../../../Services/Models/AuthModels/LoginInputModel';
-import { strict } from 'assert';
 import { useState } from 'react';
 const Login = () => {
     const [username, setUsername] = useState<string>('');

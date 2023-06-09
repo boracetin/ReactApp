@@ -1,10 +1,11 @@
 import { createBrowserRouter, defer } from 'react-router-dom';
 import Login from '../Pages/Account/Login/Login';
 import Register from '../Pages/Account/Register/Register';
+import { checkTheToken } from '../Helpers/AuthenticationHelper';
+import { ProtectedRoute } from './ProtectedRoute';
 export async function loader(permission?: string) {
-    //Control of Token
-
-    return defer({});
+    var isAuthenticated = checkTheToken();
+    return defer({ isAuthenticated });
 }
 
 export const router = createBrowserRouter([
@@ -18,10 +19,17 @@ export const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login />,
+                loader: async () => {
+                    return loader();
+                },
             },
             {
                 path: 'register',
-                element: <Register />,
+                element: (
+                    <ProtectedRoute>
+                        <Register />
+                    </ProtectedRoute>
+                ),
             },
         ],
         errorElement: <></>,
