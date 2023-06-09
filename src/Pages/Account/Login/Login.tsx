@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom';
+import { AuthAPI } from '../../../Services/ServicesRequests/Authentication/AuthApi';
+import { LoginInputModel } from '../../../Services/Models/AuthModels/LoginInputModel';
+import { strict } from 'assert';
+import { useState } from 'react';
 const Login = () => {
-    const logIn = (): string => {
-        console.log('calıstım');
-        return 'bora';
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    const logIn = async () => {
+        var body: LoginInputModel = {
+            username: username,
+            password: password,
+        };
+        await AuthAPI.login(body);
     };
 
     return (
@@ -26,6 +36,9 @@ const Login = () => {
                                 type="text"
                                 id="loginName"
                                 className="form-control"
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }}
                             />
                             <label className="form-label" htmlFor="loginName">
                                 Email or username
@@ -37,6 +50,9 @@ const Login = () => {
                                 type="password"
                                 id="loginPassword"
                                 className="form-control"
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }}
                             />
                             <label
                                 className="form-label"
