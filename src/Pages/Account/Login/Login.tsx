@@ -1,17 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthAPI } from '../../../Services/ServicesRequests/Authentication/AuthApi';
 import { LoginInputModel } from '../../../Services/Models/AuthModels/LoginInputModel';
 import { useState } from 'react';
 const Login = () => {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-
     const logIn = async () => {
         var body: LoginInputModel = {
             username: username,
             password: password,
         };
         await AuthAPI.login(body);
+        navigate('/app/dashboard');
     };
 
     return (

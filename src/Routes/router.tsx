@@ -3,6 +3,7 @@ import Login from '../Pages/Account/Login/Login';
 import Register from '../Pages/Account/Register/Register';
 import { checkTheToken } from '../Helpers/AuthenticationHelper';
 import { ProtectedRoute } from './ProtectedRoute';
+import { Dashboard } from '../Pages/App/Home/dashboard';
 export async function loader(permission?: string) {
     var isAuthenticated = checkTheToken();
     return defer({ isAuthenticated });
@@ -25,11 +26,24 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'register',
+                element: <Register />,
+            },
+        ],
+        errorElement: <></>,
+    },
+    {
+        path: '/app',
+        children: [
+            {
+                path: 'dashboard',
                 element: (
                     <ProtectedRoute>
-                        <Register />
+                        <Dashboard />
                     </ProtectedRoute>
                 ),
+                loader: async () => {
+                    return loader();
+                },
             },
         ],
         errorElement: <></>,
