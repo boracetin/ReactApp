@@ -17,7 +17,6 @@ export const Sidebar = () => {
 
     const menuService = new AppNavigationService();
     const [menu] = useState(menuService.getMenu());
-    debugger;
     return (
         <div style={{ height: '100%', width: '30%' }}>
             <h1>SIDEBAR ELEMENT</h1>

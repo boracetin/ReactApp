@@ -3,8 +3,6 @@ import { checkTheToken } from '../Helpers/AuthenticationHelper';
 
 export const ProtectedRoute = (props: any) => {
     const { children } = props;
-    debugger;
-
     if (checkTheToken()) {
         return children;
     } else {

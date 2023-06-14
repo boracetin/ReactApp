@@ -19,7 +19,6 @@ export const getTokenFromCookie = () => {
 };
 
 export const checkTheToken = () => {
-    debugger;
     let token = getTokenFromCookie();
 
     if (token === undefined) {

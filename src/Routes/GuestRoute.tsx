@@ -3,7 +3,6 @@ import { checkTheToken } from '../Helpers/AuthenticationHelper';
 
 export const GuestRoute = (props: any) => {
     const { children } = props;
-    debugger;
 
     if (checkTheToken()) {
         return <Navigate to="/app/dashboard" />;
