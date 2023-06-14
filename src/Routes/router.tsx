@@ -5,6 +5,7 @@ import { checkTheToken } from '../Helpers/AuthenticationHelper';
 import { ProtectedRoute } from './ProtectedRoute';
 import { Dashboard } from '../Pages/App/Home/dashboard';
 import { GuestRoute } from './GuestRoute';
+import { Layout } from '../Layouts/Layout';
 export async function loader(permission?: string) {
     var isAuthenticated = checkTheToken();
 
@@ -49,6 +50,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/app',
+        element: <Layout />,
         children: [
             {
                 path: 'dashboard',

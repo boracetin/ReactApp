@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import SidebarReducer from './Reducers/SidebarReducer';
 
 const store = configureStore({
-    reducer: {},
+    reducer: { sidebar: SidebarReducer },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,

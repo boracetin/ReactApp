@@ -1,3 +1,3 @@
-export const Dashboard = () => {
-    return <h1>Dashboard Page</h1>;
+export const Dashboard = (props: any) => {
+    return <h1>Dashboard Page </h1>;
 };
