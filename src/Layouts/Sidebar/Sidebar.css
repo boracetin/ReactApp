@@ -1,16 +1,14 @@
 /* The side navigation menu */
 .sidebar {
-    margin: 0;
-    padding: 0;
+    margin-top: 5px;
+    padding-top: 100px;
     background-color: #f1f1f1;
-    position: absolute;
+    position: fixed;
     width: 15%;
     height: 100%;
     overflow: auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lucida Console', 'Courier New', monospace;
 }
-
-/* Sidebar links */
 
 .sidebar div {
     display: block;
@@ -23,8 +21,8 @@
     color: white;
 }
 .sidebar div:hover:not(.active) {
-    background-color: #555;
-    color: white;
+    background-color: #ddd;
+    color: black;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */

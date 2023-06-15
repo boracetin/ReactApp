@@ -13,6 +13,10 @@ export const setTokenInCookie = (
     });
 };
 
+export const deleteTokenFromCookie = (): void => {
+    cookies.remove('token', { path: '/' });
+};
+
 export const getTokenFromCookie = () => {
     var token = cookies.get('token');
     return token;

@@ -4,6 +4,7 @@ import { AppNavigationService } from './appNavigationService';
 import { useState } from 'react';
 import { Layout } from '../Layout';
 import './Sidebar.css';
+import { deleteTokenFromCookie } from '../../Helpers/AuthenticationHelper';
 export const UPDATE = 'UPDATE';
 
 export const Sidebar = () => {
@@ -17,37 +18,24 @@ export const Sidebar = () => {
     };
 
     const menuService = new AppNavigationService();
-    const [menu] = useState(menuService.getMenu());
+    const [menu] = useState(menuService.getSidebar());
     return (
         <div className="sidebar">
+            {store.getState().sidebar.isOpen &&
+                menu.items.map((menuItem: any, key: any) => (
+                    <div className="rows" style={{ height: 'auto' }}>
+                        {menuItem.name}
+                    </div>
+                ))}
             <button
                 type="button"
                 className="btn btn-primary"
                 onClick={() => {
-                    setSidebar();
+                    deleteTokenFromCookie();
                 }}
             >
-                <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    {' '}
-                    <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M3 4H21V20H3V4ZM9 6H19V18H9V6Z"
-                        fill="currentColor"
-                    />{' '}
-                </svg>
+                Log Out
             </button>
-
-            {store.getState().sidebar.isOpen &&
-                menu.items.map((menuItem: any, index: any) => (
-                    <div style={{ height: 'auto' }}>{menuItem.name}</div>
-                ))}
         </div>
     );
 };

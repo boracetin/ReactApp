@@ -2,8 +2,15 @@ import { AppMenu } from './appMenu';
 import { AppMenuItem } from './appMenuItem';
 
 export class AppNavigationService {
-    getMenu = (): AppMenu => {
-        return new AppMenu('MainMenu', '', [
+    getHeader = (): AppMenu => {
+        return new AppMenu('HeaderMenu', '', [
+            new AppMenuItem('HOME', this.getMenuIcon(0), '/app/my-inbox'),
+            new AppMenuItem('CONTACT', this.getMenuIcon(0), '/app/my-inbox'),
+        ]);
+    };
+
+    getSidebar = (): AppMenu => {
+        return new AppMenu('SidebarMenu', '', [
             new AppMenuItem('HOME', this.getMenuIcon(0), '/app/my-inbox'),
             new AppMenuItem('NEWS', this.getMenuIcon(0), '/app/my-inbox'),
 
@@ -12,7 +19,6 @@ export class AppNavigationService {
                 this.getMenuIcon(0),
                 '/app/my-inbox'
             ),
-            new AppMenuItem('LOG OUT', this.getMenuIcon(0), '/app/my-inbox'),
         ]);
     };
     getMenuIcon = (index: number, color: string = '#D2D1D4'): JSX.Element => {

@@ -3,9 +3,9 @@ import Login from '../Pages/Account/Login/Login';
 import Register from '../Pages/Account/Register/Register';
 import { checkTheToken } from '../Helpers/AuthenticationHelper';
 import { ProtectedRoute } from './ProtectedRoute';
-import { Dashboard } from '../Pages/App/Home/dashboard';
 import { GuestRoute } from './GuestRoute';
 import { Layout } from '../Layouts/Layout';
+import { Dashboard } from '../Pages/App/Home/dashboard';
 export async function loader(permission?: string) {
     var isAuthenticated = checkTheToken();
 
