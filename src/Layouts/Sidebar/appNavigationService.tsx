@@ -4,19 +4,15 @@ import { AppMenuItem } from './appMenuItem';
 export class AppNavigationService {
     getMenu = (): AppMenu => {
         return new AppMenu('MainMenu', '', [
-            new AppMenuItem('Line1', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line2', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line3', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line4', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line5', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line6', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line7', this.getMenuIcon(0), '/app/my-inbox'),
-            new AppMenuItem('Line8', this.getMenuIcon(0), '/app/my-inbox'),
+            new AppMenuItem('HOME', this.getMenuIcon(0), '/app/my-inbox'),
+            new AppMenuItem('NEWS', this.getMenuIcon(0), '/app/my-inbox'),
+
             new AppMenuItem(
                 'Administration',
                 this.getMenuIcon(0),
                 '/app/my-inbox'
             ),
+            new AppMenuItem('LOG OUT', this.getMenuIcon(0), '/app/my-inbox'),
         ]);
     };
     getMenuIcon = (index: number, color: string = '#D2D1D4'): JSX.Element => {

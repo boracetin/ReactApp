@@ -3,6 +3,7 @@ import store from '../../Services/store';
 import { AppNavigationService } from './appNavigationService';
 import { useState } from 'react';
 import { Layout } from '../Layout';
+import './Sidebar.css';
 export const UPDATE = 'UPDATE';
 
 export const Sidebar = () => {
@@ -18,8 +19,7 @@ export const Sidebar = () => {
     const menuService = new AppNavigationService();
     const [menu] = useState(menuService.getMenu());
     return (
-        <div style={{ height: '100%', width: '30%' }}>
-            <h1>SIDEBAR ELEMENT</h1>
+        <div className="sidebar">
             <button
                 type="button"
                 className="btn btn-primary"
